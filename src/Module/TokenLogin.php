@@ -135,7 +135,7 @@ class TokenLogin extends AbstractFrontendModuleController
                         ]
                     )
                     ->setParameter(0, time())
-                    ->setParameter(1, strtotime('+2 hours'))
+                    ->setParameter(1, strtotime($model->login_token_expires) ?: strtotime('+2 hours'))
                     ->setParameter(2, $member->id)
                     ->setParameter(3, $token)
                     ->setParameter(4, $request->request->get('_target_path'))

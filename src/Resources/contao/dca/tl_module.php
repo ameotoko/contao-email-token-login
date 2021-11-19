@@ -12,4 +12,11 @@
  */
 
 
-$GLOBALS['TL_DCA']['tl_module']['palettes']['token_login'] = str_replace('autologin','nc_notification', $GLOBALS['TL_DCA']['tl_module']['palettes']['login']);
+$GLOBALS['TL_DCA']['tl_module']['palettes']['token_login'] = str_replace('autologin','nc_notification,login_token_expires', $GLOBALS['TL_DCA']['tl_module']['palettes']['login']);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['login_token_expires'] = [
+    'inputType' => 'text',
+    'exclude' => true,
+    'eval' => ['tl_class' => 'w50 clr', 'placeholder' => '+2 hours'],
+    'sql' => "varchar(16) NOT NULL default ''"
+];
